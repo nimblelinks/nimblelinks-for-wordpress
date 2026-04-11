@@ -1,0 +1,12 @@
+# Dependencies
+vendor/
+node_modules/
+
+# Build output
+build/
+
+# IDE
+.idea/
+
+# Caches
+.phpunit.result.cache

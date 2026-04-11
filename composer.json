@@ -1,0 +1,25 @@
+{
+    "name": "nimblelinks/nimble-links-wordpress",
+    "description": "Nimble Links for WordPress",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "NimbleLinks\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NimbleLinks\\Tests\\": "tests/"
+        },
+        "classmap": ["tests/Stubs/"]
+    },
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0",
+        "brain/monkey": "^2.6",
+        "mockery/mockery": "^1.6"
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "name": "nimble-links",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "build": "wp-scripts build js/sidebar/index.js --output-path=build",
+        "start": "wp-scripts start js/sidebar/index.js --output-path=build"
+    },
+    "devDependencies": {
+        "@wordpress/icons": "^12.1.0",
+        "@wordpress/scripts": "^30.0.0"
+    }
+}
