@@ -6,7 +6,7 @@
  * Version:     1.0.0
  * Author:      Nimble Links
  * Author URI:  https://nimblelinks.com
- * License:     GPLv2
+ * License:     GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: nimble-links
  * Requires PHP: 7.4
