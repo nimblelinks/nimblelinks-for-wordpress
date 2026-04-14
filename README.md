@@ -1,5 +1,7 @@
 # Nimble Links for WordPress
 
+[![CI](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
+
 A WordPress plugin that connects to [Nimble Links](https://nimblelinks.com) and lets you generate short links and QR codes for any post or page directly from the block editor.
 
 - Generate a short link and QR code from the block editor sidebar
