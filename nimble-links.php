@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Nimble Links
  * Plugin URI:  https://nimblelinks.com
- * Description: Automatically create short links and QR codes for your posts via Nimble Links.
+ * Description: Generate short links and QR codes for your posts and pages via Nimble Links.
  * Version:     1.0.0
  * Author:      Nimble Links
  * Author URI:  https://nimblelinks.com
@@ -26,28 +26,13 @@ define('NIMBLE_LINKS_PLUGIN_URL', plugin_dir_url(__FILE__));
 require_once NIMBLE_LINKS_PLUGIN_DIR . 'vendor/autoload.php';
 
 add_action('admin_menu', [NimbleLinks\Admin\SettingsPage::class, 'register']);
-add_action('admin_init', [NimbleLinks\Admin\SettingsPage::class, 'registerSettings']);
 add_action('wp_ajax_nimble_links_validate_token', [NimbleLinks\Admin\SettingsPage::class, 'ajaxValidateToken']);
 add_action('wp_ajax_nimble_links_disconnect', [NimbleLinks\Admin\SettingsPage::class, 'ajaxDisconnect']);
 add_action('admin_enqueue_scripts', [NimbleLinks\Admin\SettingsPage::class, 'enqueueAssets']);
-add_action('transition_post_status', [NimbleLinks\PostHandler::class, 'onTransition'], 10, 3);
 add_action('rest_api_init', [NimbleLinks\Rest\LinksController::class, 'register']);
 add_action('enqueue_block_editor_assets', [NimbleLinks\Admin\SettingsPage::class, 'enqueueSidebarAssets']);
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), function (array $links): array {
     $url = admin_url('options-general.php?page=nimble-links');
     array_unshift($links, '<a href="' . esc_url($url) . '">' . esc_html__('Settings', 'nimble-links') . '</a>');
     return $links;
-});
-
-add_action('admin_notices', function (): void {
-    if (get_transient('nimble_links_invalid_token')) {
-        delete_transient('nimble_links_invalid_token');
-        $url = admin_url('options-general.php?page=nimble-links');
-        printf(
-            '<div class="notice notice-error is-dismissible"><p>%s <a href="%s">%s</a></p></div>',
-            esc_html__('Nimble Links: your API token is no longer valid. Please reconnect in', 'nimble-links'),
-            esc_url($url),
-            esc_html__('Settings → Nimble Links', 'nimble-links')
-        );
-    }
 });

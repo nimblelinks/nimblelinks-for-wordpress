@@ -57,11 +57,6 @@ class LinksController
             return new WP_Error('not_found', __('Post not found.', 'nimble-links'), ['status' => 404]);
         }
 
-        $existing = get_post_meta($postId, '_nimble_links_url', true);
-        if ($existing) {
-            return self::buildLinkResponse($postId);
-        }
-
         $token = SettingsPage::getToken();
         if (empty($token)) {
             return new WP_Error('not_configured', __('Nimble Links is not connected.', 'nimble-links'), ['status' => 400]);
@@ -86,6 +81,8 @@ class LinksController
 
         update_post_meta($postId, '_nimble_links_id', sanitize_text_field($linkId));
         update_post_meta($postId, '_nimble_links_url', esc_url_raw($linkUrl));
+        delete_post_meta($postId, '_nimble_links_qr_svg');
+        delete_post_meta($postId, '_nimble_links_qr_png');
 
         PostHandler::fetchAndStoreQr($client, $linkId, $postId);
 
@@ -109,10 +106,25 @@ class LinksController
 
     private static function buildLinkResponse(int $postId): WP_REST_Response
     {
+        $url    = get_post_meta($postId, '_nimble_links_url', true);
+        $linkId = get_post_meta($postId, '_nimble_links_id', true);
+
         return new WP_REST_Response([
-            'url'    => get_post_meta($postId, '_nimble_links_url', true),
-            'qr_svg' => get_post_meta($postId, '_nimble_links_qr_svg', true),
-            'qr_png' => get_post_meta($postId, '_nimble_links_qr_png', true),
+            'url'        => $url,
+            'manage_url' => self::buildManageUrl($linkId),
+            'qr_svg'     => get_post_meta($postId, '_nimble_links_qr_svg', true),
+            'qr_png'     => get_post_meta($postId, '_nimble_links_qr_png', true),
         ], 200);
+    }
+
+    private static function buildManageUrl(string $linkId): string
+    {
+        if ($linkId === '') {
+            return '';
+        }
+
+        $baseUrl = apply_filters('nimble_links_dashboard_base_url', 'https://www.nimblelinks.com');
+
+        return rtrim($baseUrl, '/') . '/links/' . rawurlencode($linkId) . '/edit';
     }
 }

@@ -9,7 +9,7 @@ class Client
     private string $token;
     private string $baseUrl;
 
-    public function __construct(string $token, string $baseUrl = 'https://nimblelinks.com/api/v1.0')
+    public function __construct(string $token, string $baseUrl = 'https://www.nimblelinks.com/api/v1.0')
     {
         $this->token = $token;
         $this->baseUrl = apply_filters('nimble_links_api_base_url', $baseUrl);

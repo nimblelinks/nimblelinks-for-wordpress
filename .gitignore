@@ -4,9 +4,17 @@ node_modules/
 
 # Build output
 build/
+dist/
 
 # IDE
 .idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Tooling
+.claude/
 
 # Caches
 .phpunit.result.cache

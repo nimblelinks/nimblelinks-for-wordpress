@@ -18,75 +18,6 @@ class SettingsPage
         );
     }
 
-    public static function registerSettings(): void
-    {
-        register_setting('nimble_links', 'nimble_links_auto_short_link', [
-            'type'              => 'boolean',
-            'default'           => true,
-            'sanitize_callback' => 'rest_sanitize_boolean',
-        ]);
-
-        register_setting('nimble_links', 'nimble_links_auto_qr_code', [
-            'type'              => 'boolean',
-            'default'           => true,
-            'sanitize_callback' => 'rest_sanitize_boolean',
-        ]);
-
-        add_settings_section(
-            'nimble_links_connection',
-            __('Connection', 'nimble-links'),
-            '__return_null',
-            'nimble-links'
-        );
-
-        add_settings_section(
-            'nimble_links_options',
-            __('Options', 'nimble-links'),
-            '__return_null',
-            'nimble-links'
-        );
-
-        add_settings_field(
-            'nimble_links_auto_short_link',
-            __('Auto short link', 'nimble-links'),
-            [self::class, 'renderCheckbox'],
-            'nimble-links',
-            'nimble_links_options',
-            [
-                'label_for' => 'nimble_links_auto_short_link',
-                'label'     => __('Automatically create a short link for new posts', 'nimble-links'),
-            ]
-        );
-
-        add_settings_field(
-            'nimble_links_auto_qr_code',
-            __('Auto QR code', 'nimble-links'),
-            [self::class, 'renderCheckbox'],
-            'nimble-links',
-            'nimble_links_options',
-            [
-                'label_for' => 'nimble_links_auto_qr_code',
-                'label'     => __('Automatically generate a QR code for new posts', 'nimble-links'),
-            ]
-        );
-    }
-
-    public static function renderCheckbox(array $args): void
-    {
-        $option = $args['label_for'];
-        $value  = get_option($option, true);
-        ?>
-        <label>
-            <input type="checkbox"
-                   id="<?php echo esc_attr($option); ?>"
-                   name="<?php echo esc_attr($option); ?>"
-                   value="1"
-                   <?php checked($value); ?>>
-            <?php echo esc_html($args['label']); ?>
-        </label>
-        <?php
-    }
-
     public static function render(): void
     {
         if (! current_user_can('manage_options')) {
@@ -138,16 +69,6 @@ class SettingsPage
                     </div>
                 <?php endif; ?>
             </div>
-
-            <?php if ($isConnected): ?>
-                <form method="post" action="options.php">
-                    <?php
-                    settings_fields('nimble_links');
-                    do_settings_sections('nimble-links');
-                    submit_button();
-                    ?>
-                </form>
-            <?php endif; ?>
         </div>
         <?php
     }
@@ -198,7 +119,7 @@ class SettingsPage
         );
 
         wp_localize_script('nimble-links-sidebar', 'nimbleLinks', [
-            'restUrl'     => esc_url_raw(rest_url('nimble-links/v1')),
+            'restUrl'     => '/nimble-links/v1',
             'nonce'       => wp_create_nonce('wp_rest'),
             'isConnected' => self::isConnected(),
             'settingsUrl' => admin_url('options-general.php?page=nimble-links'),

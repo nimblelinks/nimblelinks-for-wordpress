@@ -16,15 +16,22 @@ export default function ShortLink({ url }) {
     return (
         <div style={{ marginBottom: '16px' }}>
             <h3 style={{ marginBottom: '8px' }}>{__('Short Link', 'nimble-links')}</h3>
-            <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+            <div style={{ display: 'flex', gap: '8px', alignItems: 'stretch' }}>
                 <div style={{ flex: 1 }}>
-                    <TextControl value={url} readOnly __nextHasNoMarginBottom />
+                    <TextControl
+                        value={url}
+                        readOnly
+                        onChange={() => {}}
+                        __next40pxDefaultSize
+                        __nextHasNoMarginBottom
+                    />
                 </div>
                 <Button
                     icon={copy}
                     label={__('Copy', 'nimble-links')}
                     onClick={handleCopy}
                     variant="secondary"
+                    __next40pxDefaultSize
                 >
                     {copied ? __('Copied!', 'nimble-links') : __('Copy', 'nimble-links')}
                 </Button>

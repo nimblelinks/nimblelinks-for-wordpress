@@ -24,7 +24,7 @@ class ClientTest extends TestCase
         Functions\expect('wp_remote_get')
             ->once()
             ->with(
-                'https://nimblelinks.com/api/v1.0/me',
+                'https://www.nimblelinks.com/api/v1.0/me',
                 \Mockery::on(function ($args) {
                     return $args['headers']['Authorization'] === 'Bearer test-token'
                         && $args['headers']['Content-Type'] === 'application/json'
@@ -61,7 +61,7 @@ class ClientTest extends TestCase
         Functions\expect('wp_remote_post')
             ->once()
             ->with(
-                'https://nimblelinks.com/api/v1.0/links',
+                'https://www.nimblelinks.com/api/v1.0/links',
                 \Mockery::type('array')
             )
             ->andReturn(['response' => ['code' => 201]]);
@@ -103,7 +103,7 @@ class ClientTest extends TestCase
         Functions\expect('wp_remote_get')
             ->once()
             ->with(
-                'https://nimblelinks.com/api/v1.0/links/aBc123/qr',
+                'https://www.nimblelinks.com/api/v1.0/links/aBc123/qr',
                 \Mockery::type('array')
             )
             ->andReturn([]);
