@@ -1,8 +1,8 @@
 === Nimble Links ===
-Contributors: nimblelinks
+Contributors: mattdaneshvar
 Tags: short links, QR code, link shortener, nimble links
 Requires at least: 6.0
-Tested up to: 6.7
+Tested up to: 6.9
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPLv2 or later
@@ -32,7 +32,7 @@ This plugin connects to the [Nimble Links](https://nimblelinks.com) API to creat
 
 **Source Code**
 
-The plugin's JavaScript is compiled with [@wordpress/scripts](https://www.npmjs.com/package/@wordpress/scripts). The unminified source and build tooling are available at https://github.com/nimblelinks/nimble-links-for-wordpress.
+The plugin's JavaScript is compiled with [@wordpress/scripts](https://www.npmjs.com/package/@wordpress/scripts). The unminified source and build tooling are available at https://github.com/nimblelinks/nimblelinks-for-wordpress.
 
 **How it works:**
 

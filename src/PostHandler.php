@@ -11,7 +11,9 @@ class PostHandler
         $qr = $client->getQr($linkId);
 
         if (is_wp_error($qr)) {
-            error_log('Nimble Links: failed to fetch QR code for link ' . $linkId . ' — ' . $qr->get_error_message());
+            if (defined('WP_DEBUG') && WP_DEBUG) {
+                error_log('Nimble Links: failed to fetch QR code for link ' . $linkId . ' — ' . $qr->get_error_message());
+            }
             return false;
         }
 

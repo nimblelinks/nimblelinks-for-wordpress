@@ -11,7 +11,7 @@
  * Text Domain: nimble-links
  * Requires PHP: 7.4
  * Requires at least: 6.0
- * Tested up to: 6.7
+ * Tested up to: 6.9
  */
 
 if (! defined('ABSPATH')) {

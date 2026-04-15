@@ -34,7 +34,6 @@ rsync -a \
   --exclude='dist' \
   --exclude='bin' \
   --exclude='README.md' \
-  --exclude='composer.json' \
   --exclude='composer.lock' \
   --exclude='package.json' \
   --exclude='package-lock.json' \
