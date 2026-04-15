@@ -30,6 +30,10 @@ This plugin connects to the [Nimble Links](https://nimblelinks.com) API to creat
 * Terms of Use: [nimblelinks.com/terms](https://nimblelinks.com/terms)
 * Privacy Policy: [nimblelinks.com/privacy](https://nimblelinks.com/privacy)
 
+**Source Code**
+
+The plugin's JavaScript is compiled with [@wordpress/scripts](https://www.npmjs.com/package/@wordpress/scripts). The unminified source and build tooling are available at https://github.com/nimblelinks/nimble-links-for-wordpress.
+
 **How it works:**
 
 1. Install and activate the plugin
