@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Nimble Links
- * Plugin URI:  https://nimblelinks.com
+ * Plugin URI:  https://github.com/nimblelinks/nimblelinks-for-wordpress
  * Description: Generate short links and QR codes for your posts and pages via Nimble Links.
  * Version:     1.0.0
  * Author:      Nimble Links
