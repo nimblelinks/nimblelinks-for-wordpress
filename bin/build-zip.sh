@@ -33,6 +33,7 @@ rsync -a \
   --exclude='js/sidebar' \
   --exclude='dist' \
   --exclude='bin' \
+  --exclude='assets' \
   --exclude='README.md' \
   --exclude='composer.lock' \
   --exclude='package.json' \
