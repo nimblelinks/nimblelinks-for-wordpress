@@ -2,9 +2,9 @@
 Contributors: mattdaneshvar
 Tags: short links, QR code, link shortener, nimble links
 Requires at least: 6.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,6 +70,9 @@ Your short links continue to work — they're managed by Nimble Links independen
 The plugin removes its settings (API token, team name) but leaves post meta in place so your existing short links remain functional.
 
 == Changelog ==
+
+= 1.0.1 =
+* Confirmed compatibility with WordPress 7.0.
 
 = 1.0.0 =
 * Initial release

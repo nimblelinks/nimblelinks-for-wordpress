@@ -3,7 +3,7 @@
  * Plugin Name: Nimble Links
  * Plugin URI:  https://github.com/nimblelinks/nimblelinks-for-wordpress
  * Description: Generate short links and QR codes for your posts and pages via Nimble Links.
- * Version:     1.0.0
+ * Version:     1.0.1
  * Author:      Nimble Links
  * Author URI:  https://nimblelinks.com
  * License:     GPLv2 or later
@@ -11,14 +11,14 @@
  * Text Domain: nimble-links
  * Requires PHP: 7.4
  * Requires at least: 6.0
- * Tested up to: 6.9
+ * Tested up to: 7.0
  */
 
 if (! defined('ABSPATH')) {
     exit;
 }
 
-define('NIMBLE_LINKS_VERSION', '1.0.0');
+define('NIMBLE_LINKS_VERSION', '1.0.1');
 define('NIMBLE_LINKS_PLUGIN_FILE', __FILE__);
 define('NIMBLE_LINKS_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('NIMBLE_LINKS_PLUGIN_URL', plugin_dir_url(__FILE__));
